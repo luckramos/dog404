@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+$white: #E0DDDC;
+$black : #252525;
+$yellow: #F5A626;
+$brown: #231F20;
+
+body {
+    background: $black;
+    margin: 0px;
+    position: relative;
+    overflow: hidden;
+
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    main{
+        background: $white;
+        border-radius: 20px 20px 0px 0px;
+        width: 97%;
+        height: 97dvh;
+        position: absolute;
+        bottom: -100dvh;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+
+        .image-container{
+            width: 80%;
+            height: 70%;
+            border-radius: 20px;
+            margin-top: 35px;
+            overflow: hidden;
+            position: relative;
+
+            .background{
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+            }
+
+            .error{
+                position: absolute;
+                left: 30px;
+                top: 0px;
+                font-size: 32px;
+                color: $white;
+                z-index: 5;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+            }
+
+            .text{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 100px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                z-index: 3;
+
+                h1{
+                    color: $white;
+                    font-weight: bold;
+                    font-size: 40px;
+                    margin: 0px;
+                }
+
+                h2{
+                    color: $yellow;
+                    font-size: 40px;
+                    font-weight: bold;
+                    margin: 0px;
+                }
+            }
+        }
+
+        .dog-info{
+            color: $brown;
+            font-size: 20px;
+        }
+
+        .form-wrapper{
+            text-align: center;
+            height: fit-content;
+            margin-top: 10px;
+            position: relative;
+            width: 200px;
+            border-radius: 10px;
+            transition: all .5s ease;
+
+            .arrow{
+                opacity: 0;
+                position: fixed;
+                left: 35%;
+                bottom: 130px;
+                z-index: 20;
+                transform: translateX(-50%);
+                clip-path: ellipse(0px 0px at 10% 20%);
+                transition: opacity .5s ease, clip-path 1s ease;
+            }
+
+            .toggle-form{
+                cursor: pointer;
+                background: $brown;
+                color: $white;
+                font-weight: bold;
+                border-radius: 10px;
+                padding: 15px;
+                transition: all .3s ease;
+                border: 1px solid $brown;
+
+                display: flex;
+                flex-direction: column;
+
+                transition: all .3s ease;
+
+                &:hover{
+                    background: $white;
+                    color: $brown;
+                    border: 1px solid $yellow;
+                }
+
+            }
+
+            &.open{
+                width: 400px;
+                opacity: 1;
+                padding: 15px;
+                background: $brown;
+
+                .arrow{
+                    opacity: 1;
+                    clip-path: ellipse(160px 140px at 10% 20%);
+                }
+                
+                .toggle-form{
+                    position: absolute;
+                    top: 2.5px;
+                    right: 2.5px;
+                    z-index: 10;
+                    padding: 2px 5px;
+                    border-radius: 7px;
+                    width: 25px;
+                }
+
+                .form-container{
+                    opacity: 1;
+                    display: flex;
+
+                }
+            }
+        }
+
+        .form-container{
+            width: 100%;
+            display: none;
+            position: relative;
+            
+            form{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                text-align: start;
+                position: relative;
+
+                label{
+                    color: $white;
+                    font-size: 16px;
+                    font-weight: bold;
+                    flex-shrink: 0;
+                    white-space: nowrap;
+                }
+
+                .input-wrapper{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    height: 50px;
+
+                    input{
+                        all: unset;
+                        background: $white;
+                        padding: 10px;
+                        border-radius: 10px 0px 0px 10px;
+                        width: 100%;
+                        height: 100%;
+                        box-sizing: border-box;
+                    }
+
+                    button{
+                        all: unset;
+                        background: $yellow;
+                        color: $brown;
+                        cursor: pointer;
+                        width: 125px;
+                        font-weight: bold;
+                        height: 100%;
+                        border-radius: 0px 10px 10px 0px;
+                        display: block;
+                        text-align: center;
+                        transition: all 0.3s ease;
+                        border: 1px solid $yellow;
+
+                        &:hover{
+                            background: $brown;
+                            color: $yellow;
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        .success-message{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0px;
+            background: $yellow;
+            color: $brown;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            animation: grow .5s ease forwards;
+        }
+    }
+
+}
+
+@keyframes grow {
+    100% {
+        height: 100%;
+    }
+}
