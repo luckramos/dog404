@@ -40,7 +40,7 @@ func getRandomDog() Dog {
 }
 
 func loadManifest() (Manifest, error) {
-	file, err := os.Open("../template/dist/.vite/manifest.json")
+	file, err := os.Open("../static/dist/.vite/manifest.json")
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func StandardHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tmpl := template.Must(template.ParseFiles("../template/dist/index.html"))
+	tmpl := template.Must(template.ParseFiles("../static/dist/index.html"))
 
 	entry, ok := manifest["index.html"]
 	if !ok {

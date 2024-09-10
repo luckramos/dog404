@@ -31,7 +31,7 @@ body {
         .image-container {
             width: 80%;
             height: 70%;
-            border-radius: 20px;
+            border-radius: 15px;
             margin-top: 35px;
             overflow: hidden;
             position: relative;
@@ -99,6 +99,7 @@ body {
             width: 200px;
             border-radius: 10px;
             transition: all .5s ease;
+            background: $brown;
 
             .arrow {
                 opacity: 0;
@@ -194,7 +195,6 @@ body {
                 width: 400px;
                 opacity: 1;
                 padding: 15px;
-                background: $brown;
 
                 .arrow {
                     opacity: 1;
